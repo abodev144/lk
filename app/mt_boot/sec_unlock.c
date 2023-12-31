@@ -99,6 +99,13 @@ static int fastboot_data_part_wipe()
 		dprintf(CRITICAL,"set_env fail\n");
 		return -1;
 	}
+        set_env_ret = set_env("unlock_erase", "pass");
+        if (set_env_ret) {
+                dprintf(CRITICAL,"set_env fail\n");
+                return -1;
+	}
+
+	return ret;
 
 	err = partition_erase("userdata");
 	if (err != PART_OK)
