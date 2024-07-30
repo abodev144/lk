@@ -7,7 +7,7 @@ PMIC_CHIP := MT6357
 ifeq ($(findstring PMIC_CHIP, $(strip $(DEFINES))),)
 DEFINES += PMIC_CHIP_$(shell echo $(PMIC_CHIP) | tr '[a-z]' '[A-Z]')
 endif
-MTK_UFS_SUPPORT = no
+MTK_UFS_SUPPORT = yes
 MTK_EMMC_SUPPORT = yes
 DEFINES += MTK_NEW_COMBO_EMMC_SUPPORT
 MTK_KERNEL_POWER_OFF_CHARGING = yes
