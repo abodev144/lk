@@ -3,6 +3,9 @@ LOCAL_DIR := $(GET_LOCAL_DIR)
 TARGET := k39tlc_bsp
 MODULES += app/mt_boot \
            dev/lcm
+ifeq ($(findstring PMIC_CHIP, $(strip $(DEFINES))),)
+DEFINES += PMIC_CHIP_$(shell echo $(PMIC_CHIP) | tr '[a-z]' '[A-Z]')
+endif
 MTK_EMMC_SUPPORT = yes
 DEFINES += MTK_NEW_COMBO_EMMC_SUPPORT
 MTK_KERNEL_POWER_OFF_CHARGING = yes
