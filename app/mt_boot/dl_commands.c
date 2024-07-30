@@ -70,7 +70,9 @@ extern int read_gpt(part_t *part);
 #include "sparse_format.h"
 #include "dl_commands.h"
 #ifdef MTK_MMC_COMBO_DRV
+#include <mmc_core.h>
 #else
+#include <platform/mmc_core.h>
 #endif
 #include <platform/mt_gpt.h>
 #include <platform/errno.h>
