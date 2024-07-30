@@ -3,7 +3,7 @@ LOCAL_DIR := $(GET_LOCAL_DIR)
 TARGET := k39tlc_bsp
 MODULES += app/mt_boot \
            dev/lcm
-PMIC_CHIP := MT6357
+#PMIC_CHIP := MT6357
 ifeq ($(findstring PMIC_CHIP, $(strip $(DEFINES))),)
 DEFINES += PMIC_CHIP_$(shell echo $(PMIC_CHIP) | tr '[a-z]' '[A-Z]')
 endif
