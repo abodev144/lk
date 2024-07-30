@@ -8,7 +8,6 @@ ifeq ($(findstring PMIC_CHIP, $(strip $(DEFINES))),)
 DEFINES += PMIC_CHIP_$(shell echo $(PMIC_CHIP) | tr '[a-z]' '[A-Z]')
 endif
 MTK_EMMC_SUPPORT = yes
-MTK_COMBO_NAND_SUPPORT = no
 MNTL_SUPPORT = yes
 DEFINES += MTK_TLC_NAND_SUPPORT
 DEFINES += MNTL_SUPPORT
