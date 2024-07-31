@@ -312,8 +312,7 @@ static void lcm_suspend(void)
 {
     push_table(lcm_sleep_mode_in_setting, sizeof(lcm_sleep_mode_in_setting) / sizeof(struct LCM_setting_table), 1);
 }
-static void lcm_resume(void)
-{
+
 static void lcm_resume(void)
 {
 	lcm_init();
