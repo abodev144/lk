@@ -35,4 +35,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name:  k39tv1_bsp_1g_lk-signed
-        path: /home/runner/work/lk/lk/build- k39tv1_bsp_1g/lk-bin.img
+        path: /home/runner/work/lk/lk/build-k39tv1_bsp_1g/lk-bin.img
