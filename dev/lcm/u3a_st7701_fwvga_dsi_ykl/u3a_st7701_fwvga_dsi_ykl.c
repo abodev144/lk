@@ -326,10 +326,7 @@ static void lcm_resume(void)
     mt6357_upmu_set_rg_ldo_vldo28_en(1);
     mt6357_upmu_set_rg_ldo_vldo28_1_en(1);
     mt6357_upmu_set_rg_ldo_vldo28_sw_op_en(1);
-*/
-
-}
-         
+*/      
 static unsigned int lcm_compare_id(void)
 {
     return 1;
