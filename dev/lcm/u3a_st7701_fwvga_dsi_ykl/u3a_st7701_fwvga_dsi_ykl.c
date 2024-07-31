@@ -4,7 +4,6 @@
 #else
 #include <mt-plat/mt_gpio.h>
 #endif
-
 #if !defined(BUILD_LK)
 #include <linux/string.h>
 #endif
