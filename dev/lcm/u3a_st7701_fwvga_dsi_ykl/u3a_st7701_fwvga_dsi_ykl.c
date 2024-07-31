@@ -312,15 +312,18 @@ static void lcm_suspend(void)
 {
     push_table(lcm_sleep_mode_in_setting, sizeof(lcm_sleep_mode_in_setting) / sizeof(struct LCM_setting_table), 1);
 }
-
 static void lcm_resume(void)
-{     
+{
+	LCM_LOGI("%s, \n", __func__);
+
+	if (lcd_first_pwron == 1) {
 #ifndef BUILD_LK
 		printk("pre booting return \n");
 #endif
 		return;
+
 	}
-    lcm_init();
+	lcm_init();
 }
 /* ADD FOR PS later
     mt6357_upmu_set_rg_ldo_vldo28_en(1);
