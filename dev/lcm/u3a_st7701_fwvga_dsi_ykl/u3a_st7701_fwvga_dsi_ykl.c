@@ -4,21 +4,11 @@
 #else
 #include <mt-plat/mt_gpio.h>
 #endif
+
 #if !defined(BUILD_LK)
 #include <linux/string.h>
 #endif
 #include "lcm_drv.h"
-#ifdef BUILD_LK
-#define LCD_DEBUG(fmt)  printk(fmt)
-#endif
-#define LOG_TAG "u3a_st7701_fwvga_dsi_ykl"
-#ifdef BUILD_LK
-#define LCM_LOGI(string, args...)  dprintf(0, "[LK/"LOG_TAG"]"string, ##args)
-#define LCM_LOGD(string, args...)  dprintf(1, "[LK/"LOG_TAG"]"string, ##args)
-#else
-#define LCM_LOGI(fmt, args...)  pr_notice("[KERNEL/"LOG_TAG"]"fmt, ##args)
-#define LCM_LOGD(fmt, args...)  pr_debug("[KERNEL/"LOG_TAG"]"fmt, ##args)
-#endif
 
 #if defined(BUILD_LK)
         #define LCM_DEBUG  printf
@@ -46,11 +36,9 @@
 //  Local Variables
 // ---------------------------------------------------------------------------
 
-#define LCM_PRINT printk
+static LCM_UTIL_FUNCS lcm_util = {0};
 
-static LCM_UTIL_FUNCS lcm_util = { 0 };
-
-#define SET_RESET_PIN(v)	(lcm_util.set_reset_pin((v)))
+#define SET_RESET_PIN(v)    (lcm_util.set_reset_pin((v)))
 
 #define UDELAY(n) (lcm_util.udelay(n))
 #define MDELAY(n) (lcm_util.mdelay(n))
@@ -76,23 +64,15 @@ struct LCM_setting_table {
 };
 
 static struct LCM_setting_table lcm_sleep_mode_in_setting[] = {
-        // Display off sequence
-        {0x28, 0, {0x00}},
-        {REGFLAG_DELAY, 20, {}},
+    // Display off sequence
+    {0x28, 0, {0x00}},
+    {REGFLAG_DELAY, 20, {}},
 
 
-        {0x10, 0, {0x00}},
-        {REGFLAG_DELAY, 120, {}},
-        {REGFLAG_END_OF_TABLE, 0x00, {}}
+    {0x10, 0, {0x00}},
+    {REGFLAG_DELAY, 120, {}},
+    {REGFLAG_END_OF_TABLE, 0x00, {}}
 };
-static struct LCM_setting_table lcm_compare_id_setting[] = {
-        // Display off sequence
-        {0xF0,  5,      {0x55, 0xaa, 0x52,0x08,0x00}},
-        {REGFLAG_DELAY, 10, {}},
-
-        {REGFLAG_END_OF_TABLE, 0x00, {}}
-};
-
 
 static void push_table(struct LCM_setting_table *table, unsigned int count, unsigned char force_update)
 {
@@ -121,10 +101,10 @@ static void push_table(struct LCM_setting_table *table, unsigned int count, unsi
 
 static void lcm_set_util_funcs(const LCM_UTIL_FUNCS *util)
 {
-#ifndef BUILD_LK
     memcpy(&lcm_util, util, sizeof(LCM_UTIL_FUNCS));
-#endif
 }
+
+
 static void lcm_get_params(LCM_PARAMS *params)
 {
     memset(params, 0, sizeof(LCM_PARAMS));
@@ -167,11 +147,11 @@ static void lcm_get_params(LCM_PARAMS *params)
 static void lcm_init(void)
 {
     unsigned int array[6];
-
+#if !defined(BUILD_LK)
     mt6357_upmu_set_rg_ldo_vldo28_en(1);
     mt6357_upmu_set_rg_ldo_vldo28_1_en(1);
     mt6357_upmu_set_rg_ldo_vldo28_sw_op_en(1);
-
+#endif
     MDELAY(100);
     SET_RESET_PIN(1);
     MDELAY(10);
@@ -327,15 +307,16 @@ static void lcm_suspend(void)
 
 static void lcm_resume(void)
 {
-	lcm_init();
-	LCM_LOGI("%s\n", __func__);
-}
+    lcm_init();
 
 /* ADD FOR PS later
     mt6357_upmu_set_rg_ldo_vldo28_en(1);
     mt6357_upmu_set_rg_ldo_vldo28_1_en(1);
     mt6357_upmu_set_rg_ldo_vldo28_sw_op_en(1);
-*/      
+*/
+
+}
+         
 static unsigned int lcm_compare_id(void)
 {
     return 1;
@@ -343,7 +324,7 @@ static unsigned int lcm_compare_id(void)
 
 LCM_DRIVER u3a_st7701_fwvga_dsi_ykl_lcm_drv = 
 {
-    .name           = "u3a_st7701_fwvga_ykl",
+    .name           = "u3a_st7701_fwvga_dsi_ykl",
     .set_util_funcs = lcm_set_util_funcs,
     .get_params     = lcm_get_params,
     .init           = lcm_init,
