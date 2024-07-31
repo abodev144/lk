@@ -315,11 +315,8 @@ static void lcm_suspend(void)
 static void lcm_resume(void)
 {
 #ifndef BUILD_LK
-		printk("pre booting return \n");
-#endif
 #endif
 		return;
-
 	}
 	lcm_init();
 }
