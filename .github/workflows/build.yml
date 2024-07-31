@@ -29,10 +29,10 @@ jobs:
     - name: Build the bootloader
       run: |
         export python=python2
-        touch ./main_dtb_header.bin # no dtb is required for  k39tlc_bsp
-        TOOLCHAIN_PREFIX=~/gcc-toolchain/bin/arm-linux-androideabi- make  k39tlc_bsp
+        touch ./main_dtb_header.bin # no dtb is required for  k39tv1_bsp_1g
+        TOOLCHAIN_PREFIX=~/gcc-toolchain/bin/arm-linux-androideabi- make  k39tv1_bsp_1g
     - name : Upload bootloader
       uses: actions/upload-artifact@v4
       with:
-        name:  k39tlc_bsp_lk-signed
-        path: /home/runner/work/lk/lk/build- k39tlc_bsp/lk-sign.img
+        name:  k39tv1_bsp_1g_lk-signed
+        path: /home/runner/work/lk/lk/build- k39tv1_bsp_1g/lk-sign.img
