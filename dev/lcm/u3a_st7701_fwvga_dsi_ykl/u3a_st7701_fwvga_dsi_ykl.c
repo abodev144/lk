@@ -10,6 +10,20 @@
 #endif
 #include "lcm_drv.h"
 
+#ifdef BUILD_LK
+#define LCD_DEBUG(fmt)  dprintf(CRITICAL,fmt)
+#else
+#define LCD_DEBUG(fmt)  printk(fmt)
+#endif
+#define LOG_TAG "u3a_st7701_fwvga_dsi_ykl_drv"
+#ifdef BUILD_LK
+#define LCM_LOGI(string, args...)  dprintf(0, "[LK/"LOG_TAG"]"string, ##args)
+#define LCM_LOGD(string, args...)  dprintf(1, "[LK/"LOG_TAG"]"string, ##args)
+#else
+#define LCM_LOGI(fmt, args...)  pr_notice("[KERNEL/"LOG_TAG"]"fmt, ##args)
+#define LCM_LOGD(fmt, args...)  pr_debug("[KERNEL/"LOG_TAG"]"fmt, ##args)
+#endif
+
 #if defined(BUILD_LK)
         #define LCM_DEBUG  printf
         #define LCM_FUNC_TRACE() printf("huyl [uboot] %s\n",__func__)
