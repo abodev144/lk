@@ -314,11 +314,11 @@ static void lcm_suspend(void)
 }
 static void lcm_resume(void)
 {
-#ifndef BUILD_LK
-#endif
-		return;
-	}
+static void lcm_resume(void)
+{
 	lcm_init();
+	LCM_LOGI("%s\n", __func__);
+}
 
 /* ADD FOR PS later
     mt6357_upmu_set_rg_ldo_vldo28_en(1);
