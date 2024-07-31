@@ -455,17 +455,6 @@ bool cmd_flash_mmc_img(const char* arg, void* data, unsigned sz)
 			}
 			if (!strncmp(arg, "preloader", strlen("preloader"))) {
 				dev = mt_part_get_device();
-
-#if (defined(MTK_EMMC_SUPPORT) || defined(MTK_UFS_SUPPORT))
-				if (dev->blkdev->type == BOOTDEV_SDMMC) {
-					int boot_wp = mmc_get_card(0)->raw_ext_csd[EXT_CSD_BOOT_WP];
-					if (boot_wp & EXT_CSD_BOOT_WP_EN_PERM_WP) {
-                        set_response_msg("flash preloader is not permitted.");
-                        return false;
-                    }
-                }
-#endif
-
 #ifdef PLATFORM_FASTBOOT_EMPTY_STORAGE
                 if (process_preloader(data, &sz)) {
                     set_response_msg("not a valid preloader.");
