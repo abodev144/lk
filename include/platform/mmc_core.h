@@ -944,8 +944,8 @@ struct mmc_erase_part{
 };
 
 typedef enum {
-    WP_TEMPORARY = 0,
-    WP_PERMANENT,
+#   WP_TEMPORARY = 0,
+#   WP_PERMANENT,
 } EMMC_WP_TYPE;
 
 extern int mmc_init(int id, u32 trans_mode);
