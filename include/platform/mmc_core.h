@@ -947,7 +947,7 @@ extern int mmc_init(int id, u32 trans_mode);
 extern struct mmc_host *mmc_get_host(int id);
 extern struct mmc_card *mmc_get_card(int id);
 extern int mmc_init_host(struct mmc_host *host, int id, int clksrc, u8 mode);
-extern int mmc_init_card(struct mmc_host *host, struct mmc_card *card);
+#extern int mmc_init_card(struct mmc_host *host, struct mmc_card *card);
 extern int mmc_cmd(struct mmc_host *host, struct mmc_command *cmd);
 extern int mmc_set_blk_length(struct mmc_host *host, u32 blklen);
 extern int mmc_set_bus_width(struct mmc_host *host, struct mmc_card *card, int width);
