@@ -109,10 +109,10 @@ static void push_table(struct LCM_setting_table *table, unsigned int count, unsi
 
 static void lcm_set_util_funcs(const LCM_UTIL_FUNCS *util)
 {
+#ifndef BUILD_LK
     memcpy(&lcm_util, util, sizeof(LCM_UTIL_FUNCS));
+#endif
 }
-
-
 static void lcm_get_params(LCM_PARAMS *params)
 {
     memset(params, 0, sizeof(LCM_PARAMS));
@@ -316,6 +316,8 @@ static void lcm_suspend(void)
 static void lcm_resume(void)
 {
     lcm_init();
+        
+#ifndef BUILD_LK
 
 /* ADD FOR PS later
     mt6357_upmu_set_rg_ldo_vldo28_en(1);
