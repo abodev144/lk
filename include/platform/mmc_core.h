@@ -35,7 +35,6 @@
  * any receiver's applicable license agreements with MediaTek Inc.
  */
 
-#ifndef MMC_CORE_H
 #define MMC_CORE_H
 
 #include "msdc_cfg.h"
