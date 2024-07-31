@@ -343,7 +343,7 @@ static unsigned int lcm_compare_id(void)
 
 LCM_DRIVER u3a_st7701_fwvga_dsi_ykl_lcm_drv = 
 {
-    .name           = "u3a_st7701_fwvga_ykl_lcm_drv",
+    .name           = "u3a_st7701_fwvga_ykl",
     .set_util_funcs = lcm_set_util_funcs,
     .get_params     = lcm_get_params,
     .init           = lcm_init,
