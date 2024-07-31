@@ -314,8 +314,6 @@ static void lcm_suspend(void)
 }
 static void lcm_resume(void)
 {
-	LCM_LOGI("%s, \n", __func__);
-
 	if (lcd_first_pwron == 1) {
 #ifndef BUILD_LK
 		printk("pre booting return \n");
