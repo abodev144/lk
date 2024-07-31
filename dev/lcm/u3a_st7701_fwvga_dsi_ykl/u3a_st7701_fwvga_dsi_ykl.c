@@ -319,7 +319,6 @@ static void lcm_resume(void)
 		return;
 	}
 	lcm_init();
-}
 
 /* ADD FOR PS later
     mt6357_upmu_set_rg_ldo_vldo28_en(1);
