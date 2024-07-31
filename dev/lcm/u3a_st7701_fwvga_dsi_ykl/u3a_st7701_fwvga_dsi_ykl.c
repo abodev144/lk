@@ -317,11 +317,13 @@ static void lcm_resume(void)
 #ifndef BUILD_LK
 		printk("pre booting return \n");
 #endif
+#endif
 		return;
 
 	}
 	lcm_init();
 }
+
 /* ADD FOR PS later
     mt6357_upmu_set_rg_ldo_vldo28_en(1);
     mt6357_upmu_set_rg_ldo_vldo28_1_en(1);
