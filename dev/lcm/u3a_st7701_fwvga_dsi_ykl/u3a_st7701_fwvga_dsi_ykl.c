@@ -297,7 +297,6 @@ static void lcm_init(void)
     array[0] = 0x290500;
     dsi_set_cmdq(array, 1, 1);
     MDELAY(20);
-    printk("[LLF_kernel]:u3a_infinish\n");
 }
 
 static void lcm_suspend(void)
