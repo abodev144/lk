@@ -9,13 +9,14 @@
 #include <linux/string.h>
 #endif
 #include "lcm_drv.h"
-
 #ifdef BUILD_LK
+#define LCM_LOGI(fmt, args...)
+#else
 #define LCD_DEBUG(fmt)  dprintf(CRITICAL,fmt)
 #else
 #define LCD_DEBUG(fmt)  printk(fmt)
 #endif
-#define LOG_TAG "u3a_st7701_fwvga_dsi_ykl_drv"
+#define LOG_TAG "u3a_st7701_fwvga_dsi_ykl"
 #ifdef BUILD_LK
 #define LCM_LOGI(string, args...)  dprintf(0, "[LK/"LOG_TAG"]"string, ##args)
 #define LCM_LOGD(string, args...)  dprintf(1, "[LK/"LOG_TAG"]"string, ##args)
