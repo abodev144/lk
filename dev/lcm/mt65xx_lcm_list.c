@@ -52,13 +52,13 @@ extern LCM_DRIVER hct_otm1285a_dsi_vdo_hd_boe;
 extern LCM_DRIVER hct_ili9881_dsi_vdo_hd_cpt;
 extern LCM_DRIVER hct_hx8394f_dsi_vdo_hd_cmi;
 extern LCM_DRIVER hct_otm1282_dsi_vdo_hd_auo;
-extern LCM_DRIVER u3a_st7701_fwvga_ykl_lcm_drv;
+extern LCM_DRIVER u3a_st7701_fwvga_dsi_ykl_lcm_drv;
 extern LCM_DRIVER hct_nt35521s_dsi_vdo_hd_boe_50_xld;
 extern LCM_DRIVER hct_hx8394d_dsi_vdo_hd_cmi;
 
 LCM_DRIVER *lcm_driver_list[] = {
 #if defined(U3A_ST7701_FWVGA_DSI_YKL)
-       &u3a_st7701_fwvga_dsi_ykl,
+       &u3a_st7701_fwvga_dsi_ykl_lcm_drv,
 #endif
 
 #if defined(HCT_ILI9881_DSI_VDO_HD_CPT)
