@@ -458,14 +458,6 @@ typedef enum {
 #define EXT_CSD_BOOT_WP_DIS_PWR_WP      (1 << 6)
 #define EXT_CSD_BOOT_WP_SEL             (1 << 7)
 
-/* USER_WP[171] */
-#define EXT_CSD_USR_WP_EN_PWR_WP        (1)
-#define EXT_CSD_USR_WP_EN_PERM_WP       (1<<2)
-#define EXT_CSD_USR_WP_DIS_PWR_WP       (1<<3)
-#define EXT_CSD_USR_WP_DIS_PERM_WP      (1<<4)
-#define EXT_CSD_USR_WP_DIS_CD_PERM_WP   (1<<6)
-#define EXT_CSD_USR_WP_DIS_PERM_PWD     (1<<7)
-
 /* RST_n_FUNCTION[162] */
 #define EXT_CSD_RST_N_TEMP_DIS          (0)
 #define EXT_CSD_RST_N_PERM_EN           (1) /* carefully */
