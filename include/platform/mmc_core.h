@@ -993,10 +993,6 @@ extern int mmc_legacy_init(int verbose);
 extern int mmc_set_part_config(struct mmc_card *card, u8 cfg);
 extern int mmc_send_status(struct mmc_host *host, struct mmc_card *card, u32 *status);
 
-#if defined(MMC_MSDC_DRV_LK)
-extern unsigned int mmc_set_write_protect(int dev_num, u32 partition_id, unsigned long blknr, u32 blkcnt, EMMC_WP_TYPE type);
-#endif
-
 #if !defined(MMC_MSDC_DRV_CTP)
 extern int mmc_switch_part(u32 part_id);
 #endif
