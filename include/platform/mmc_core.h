@@ -944,10 +944,6 @@ extern int mmc_block_read(int dev_num, unsigned long blknr, u32 blkcnt, unsigned
 extern int mmc_block_write(int dev_num, unsigned long blknr, u32 blkcnt, unsigned long *src);
 #if defined(MMC_MSDC_DRV_PRELOADER)
 extern int mmc_bread_boot(blkdev_t *bdev, u32 blknr, u32 blks, u8 *buf);
-extern int mmc_bwrite_boot(blkdev_t *bdev, u32 blknr, u32 blks, u8 *buf);
-#endif
-extern int mmc_deselect_all_card(struct mmc_host *host);
-extern int mmc_select_card(struct mmc_host *host, struct mmc_card *card);
 extern u32 mmc_select_voltage(struct mmc_host *host, u32 ocr);
 extern int mmc_send_relative_addr(struct mmc_host *host, struct mmc_card *card, unsigned int *rca);
 
