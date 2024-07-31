@@ -943,13 +943,6 @@ struct mmc_erase_part{
     u32 blkcnt;
 };
 
-typedef enum {
-    WP_TEMPORARY = 0,
-    WP_POWER_ON,
-    WP_PERMANENT,
-    WP_DISABLE,
-} EMMC_WP_TYPE;
-
 extern int mmc_init(int id, u32 trans_mode);
 extern struct mmc_host *mmc_get_host(int id);
 extern struct mmc_card *mmc_get_card(int id);
