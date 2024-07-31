@@ -17,9 +17,9 @@ jobs:
     - name: Build the bootloader
       run: |
         export python=python2
-        make X5
+        make k39tv1_bsp_1g
     - name : Upload bootloader
       uses: actions/upload-artifact@v2
       with:
-        name: X5_lk-signed.img
-        path: /home/runner/work/lk/lk/build-X5/lk-sign.img
+        name: k39tv1_bsp_1g_lk-signed.img
+        path: /home/runner/work/lk/lk/build-k39tv1_bsp_1g/lk-sign.img
